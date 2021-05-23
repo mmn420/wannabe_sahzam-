@@ -22,7 +22,7 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="1" column="0" alignment="Qt::AlignRight">
-     <widget class="QLabel" name="label_2">
+     <widget class="QLabel" name="fileLabel2">
       <property name="maximumSize">
        <size>
         <width>16777215</width>
@@ -46,14 +46,14 @@ padding-left:5px
      </widget>
     </item>
     <item row="1" column="2">
-     <widget class="QLabel" name="label_3">
+     <widget class="QLabel" name="song2">
       <property name="text">
        <string>SELECTED FILE NAME</string>
       </property>
      </widget>
     </item>
     <item row="0" column="1" alignment="Qt::AlignLeft">
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="openButton1">
       <property name="maximumSize">
        <size>
         <width>120</width>
@@ -118,7 +118,7 @@ padding-left:5px
      </widget>
     </item>
     <item row="5" column="0" colspan="2" alignment="Qt::AlignHCenter">
-     <widget class="QLabel" name="label_4">
+     <widget class="QLabel" name="MedhatShalaby">
       <property name="font">
        <font>
         <weight>75</weight>
@@ -131,7 +131,7 @@ padding-left:5px
      </widget>
     </item>
     <item row="0" column="0" alignment="Qt::AlignRight">
-     <widget class="QLabel" name="label">
+     <widget class="QLabel" name="fileLabel1">
       <property name="maximumSize">
        <size>
         <width>16777215</width>
@@ -155,7 +155,7 @@ padding-left:5px
      </widget>
     </item>
     <item row="0" column="2">
-     <widget class="QLabel" name="label_5">
+     <widget class="QLabel" name="song1">
       <property name="minimumSize">
        <size>
         <width>0</width>
@@ -168,7 +168,7 @@ padding-left:5px
      </widget>
     </item>
     <item row="2" column="1" alignment="Qt::AlignRight">
-     <widget class="QLabel" name="label_7">
+     <widget class="QLabel" name="ratioLabel">
       <property name="minimumSize">
        <size>
         <width>0</width>
@@ -187,7 +187,7 @@ padding-left:5px
      </widget>
     </item>
     <item row="1" column="1" alignment="Qt::AlignLeft">
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="openButton2">
       <property name="maximumSize">
        <size>
         <width>120</width>
@@ -200,7 +200,7 @@ padding-left:5px
      </widget>
     </item>
     <item row="2" column="2">
-     <widget class="QSlider" name="horizontalSlider">
+     <widget class="QSlider" name="slider">
       <property name="maximumSize">
        <size>
         <width>16777215</width>
@@ -219,7 +219,7 @@ padding-left:5px
      </widget>
     </item>
     <item row="2" column="3">
-     <widget class="QLabel" name="label_6">
+     <widget class="QLabel" name="sliderValue">
       <property name="font">
        <font>
         <weight>75</weight>
