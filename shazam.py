@@ -37,7 +37,7 @@ X = librosa.stft(samples, n_fft=windowSize, hop_length=hop_length, window=window
 Xdb = librosa.amplitude_to_db(abs(X))
 plt.figure(figsize=(14, 5))
 librosa.display.specshow(Xdb, sr=sampling_rate, x_axis='time', y_axis='hz') 
-print(str(imagehash.phash(Image.fromarray(np.reshape(librosa.feature.spectral_centroid(samples),(-1, 2))))))
+print(str(imagehash.phash(Image.fromarray(librosa.feature.spectral_centroid(samples)))))
 print(Image.fromarray(((np.reshape(librosa.feature.spectral_centroid(samples),(-1, 2))))))
 plt.colorbar()
 plt.show()
