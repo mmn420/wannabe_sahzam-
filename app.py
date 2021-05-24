@@ -1,7 +1,10 @@
+from createdb import create_db
 from PyQt5 import QtWidgets, uic
 import functions as tools
 import connects as ct
 import sys
+import os
+from createdb import create_db
 
 class Ui(QtWidgets.QMainWindow):
     def __init__(self):
@@ -18,4 +21,5 @@ class Ui(QtWidgets.QMainWindow):
 app = QtWidgets.QApplication(sys.argv)
 window = Ui()
 window.show()
+create_db("C:/Users/momen/Downloads/Music")
 app.exec_()
