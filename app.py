@@ -15,11 +15,12 @@ class Ui(QtWidgets.QMainWindow):
         songLabels = [self.song1,self.song2]
         for i in range(2):
             ct.connectButton(self,openSongs[i],songLabels[i],i)
-        self.slider.valueChanged.connect(lambda: tools.sliderChange(self, self.slider, self.sliderValue))
+        ct.connectSearch(self,self.searchButton)  
+        ct.connectSlider(self,self.slider,self.sliderValue)
         
 
 app = QtWidgets.QApplication(sys.argv)
 window = Ui()
 window.show()
-create_db("C:/Users/momen/Downloads/Music")
+# create_db("C:/Users/momen/Downloads/Music")
 app.exec_()
