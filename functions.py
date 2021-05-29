@@ -58,13 +58,13 @@ def json_data(song):
             dataInFile = json.load(file)
             dataInFile['songs'].append(song.hashes)
             file.seek(0)
-            json.dump(dataInFile, file)
+            json.dump(dataInFile, file, indent=4)
     else:
         data = {}
         data['songs'] = []
         data['songs'].append(song.hashes)
         with open('data.json', 'w') as outfile:
-            json.dump(data, outfile)
+            json.dump(data, outfile, indent=4)
 
 def sliderChange(self, slider, label):
     label.setText(str(slider.value()) + " %")
@@ -73,9 +73,9 @@ def compareHashes(song):
     with open("data.json", "r+") as file:
             dataInFile = json.load(file)
     for i in range (len(dataInFile['songs'])):
-        mfcc_index = 1 - (imagehash.hex_to_hash(song.hashes["mfcc"]) - imagehash.hex_to_hash(dataInFile['songs'][i]['mfcc']))/64.0 
-        mel_index = 1 - (imagehash.hex_to_hash(song.hashes["mel_spectrogram"]) - imagehash.hex_to_hash(dataInFile['songs'][i]['mel_spectrogram']))/64.0
-        print (os.path.basename(dataInFile['songs'][i]['Name']) , mfcc_index , mel_index)
+        mfcc_index = 1 - (imagehash.hex_to_hash(song.hashes["mfcc"]) - imagehash.hex_to_hash(dataInFile['songs'][i]['mfcc']))/256.0 
+        mel_index = 1 - (imagehash.hex_to_hash(song.hashes["mel_spectrogram"]) - imagehash.hex_to_hash(dataInFile['songs'][i]['mel_spectrogram']))/256.0
+        print (os.path.basename(dataInFile['songs'][i]['Name']) , (mfcc_index + mel_index)/2)
 
 
 
