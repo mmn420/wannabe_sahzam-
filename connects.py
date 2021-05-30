@@ -6,5 +6,8 @@ def connectSlider(self,slider,value):
 def connectButton(self,button,label,index):
     button.clicked.connect(lambda: tools.browseFiles(self,label,index))
 
+def connectClose(self,button,label,index):
+    button.clicked.connect(lambda: tools.closeSong(self,label,index))
+
 def connectSearch(self,button):
     button.clicked.connect(lambda: tools.compareHashes(self))

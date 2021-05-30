@@ -1,15 +1,26 @@
-from PyQt5 import QtWidgets, QtCore
-from PyQt5.QtWidgets import QFileDialog, QMessageBox, QTableWidgetItem
 import librosa
 import os
 import numpy as np
 import matplotlib.pyplot as plt
+import imagehash
+import json
+import logging
+import logging.config
+from getSystemInfo import getSystemInfo
+from Song import Song
+from PyQt5 import QtWidgets, QtCore
+from PyQt5.QtWidgets import QFileDialog, QMessageBox, QTableWidgetItem
 from scipy import signal as sig
 from pydub import AudioSegment
 from os import path
-import imagehash
-import json
-from Song import Song
+
+logging.basicConfig(
+    filename="log.txt",
+    filemode="w",
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    level=20,
+)
+logging.info(f"System info: {json.loads(getSystemInfo())}")
 
 songs = [Song(),Song()]
 def readSong(fname,index):
@@ -34,7 +45,8 @@ def browseFiles(self,label,index):
         label.setText(os.path.basename(fname[0]))
         readSong(fname[0],index)
     elif fname[0]!="":
-        QMessageBox.critical(self,"Error","Invalid format. Please select a file with a wav or mp3 format.")
+        errorMssg(self,"Invalid format. Please select a file with a wav or mp3 format.")
+        logging.warning(f"User selected a different format {fname[0]}")
         return
 
 def sliderChange(self, slider, label):
@@ -42,7 +54,8 @@ def sliderChange(self, slider, label):
 
 def mixer(self):
     if type(songs[0].samples)==int and type(songs[1].samples)==int:
-        QMessageBox.critical(self,"Error","No file selected")
+        errorMssg(self,"Please select at least one file")
+        logging.critical("No file selected.")
         return 0
     elif type(songs[0].samples)==int:
         return songs[1]
@@ -84,3 +97,10 @@ def constuctTable(self,similars):
     similars.sort(key = lambda x:x[0],reverse=True)
     for item in similars:
         addTableRow(self.table,item)
+
+def errorMssg(self, txt):
+    QMessageBox.critical(self, "Error", txt)
+
+def closeSong(self,label,index):
+    songs[index] = Song()
+    label.setText("SELECTED FILE NAME")

@@ -21,6 +21,107 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
+    <item row="8" column="0" colspan="2" alignment="Qt::AlignHCenter">
+     <widget class="QLabel" name="MedhatShalaby">
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Matching songs</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="3">
+     <widget class="QLabel" name="song2">
+      <property name="maximumSize">
+       <size>
+        <width>300</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>SELECTED FILE NAME</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="3">
+     <widget class="QSlider" name="slider">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="maximum">
+       <number>100</number>
+      </property>
+      <property name="value">
+       <number>50</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1" alignment="Qt::AlignLeft">
+     <widget class="QPushButton" name="openButton2">
+      <property name="maximumSize">
+       <size>
+        <width>120</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Open File</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1" alignment="Qt::AlignRight">
+     <widget class="QLabel" name="ratioLabel">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>File #1 : File #2</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0" alignment="Qt::AlignRight">
+     <widget class="QLabel" name="fileLabel2">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+padding-left:5px
+}</string>
+      </property>
+      <property name="text">
+       <string>File #2</string>
+      </property>
+     </widget>
+    </item>
     <item row="0" column="0" alignment="Qt::AlignRight">
      <widget class="QLabel" name="fileLabel1">
       <property name="maximumSize">
@@ -45,7 +146,7 @@ padding-left:5px
       </property>
      </widget>
     </item>
-    <item row="2" column="3">
+    <item row="5" column="4">
      <widget class="QLabel" name="sliderValue">
       <property name="font">
        <font>
@@ -63,20 +164,7 @@ padding-right:5px
       </property>
      </widget>
     </item>
-    <item row="1" column="1" alignment="Qt::AlignLeft">
-     <widget class="QPushButton" name="openButton2">
-      <property name="maximumSize">
-       <size>
-        <width>120</width>
-        <height>25</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>Open File</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="2">
+    <item row="0" column="3">
      <widget class="QLabel" name="song1">
       <property name="minimumSize">
        <size>
@@ -95,67 +183,16 @@ padding-right:5px
       </property>
      </widget>
     </item>
-    <item row="1" column="2">
-     <widget class="QLabel" name="song2">
+    <item row="6" column="3" alignment="Qt::AlignHCenter">
+     <widget class="QPushButton" name="searchButton">
       <property name="maximumSize">
        <size>
-        <width>300</width>
+        <width>200</width>
         <height>16777215</height>
        </size>
       </property>
       <property name="text">
-       <string>SELECTED FILE NAME</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1" alignment="Qt::AlignRight">
-     <widget class="QLabel" name="ratioLabel">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>File #1 : File #2</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="0" colspan="2" alignment="Qt::AlignHCenter">
-     <widget class="QLabel" name="MedhatShalaby">
-      <property name="font">
-       <font>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Matching songs</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="2">
-     <widget class="QSlider" name="slider">
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="maximum">
-       <number>100</number>
-      </property>
-      <property name="value">
-       <number>50</number>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
+       <string>Search</string>
       </property>
      </widget>
     </item>
@@ -172,31 +209,7 @@ padding-right:5px
       </property>
      </widget>
     </item>
-    <item row="1" column="0" alignment="Qt::AlignRight">
-     <widget class="QLabel" name="fileLabel2">
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>25</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QLabel{
-padding-left:5px
-}</string>
-      </property>
-      <property name="text">
-       <string>File #2</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="2" rowspan="3">
+    <item row="7" column="3" rowspan="3">
      <widget class="QTableWidget" name="table">
       <property name="minimumSize">
        <size>
@@ -257,16 +270,41 @@ max-width: 5000px;
       </column>
      </widget>
     </item>
-    <item row="3" column="2" alignment="Qt::AlignHCenter">
-     <widget class="QPushButton" name="searchButton">
+    <item row="0" column="2">
+     <widget class="QPushButton" name="close1">
+      <property name="minimumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
       <property name="maximumSize">
        <size>
-        <width>200</width>
-        <height>16777215</height>
+        <width>20</width>
+        <height>20</height>
        </size>
       </property>
       <property name="text">
-       <string>Search</string>
+       <string>X</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2">
+     <widget class="QPushButton" name="close2">
+      <property name="minimumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>X</string>
       </property>
      </widget>
     </item>
