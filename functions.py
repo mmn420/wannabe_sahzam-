@@ -80,7 +80,8 @@ def compareHashes(self):
     for i in range (len(dataInFile['songs'])):
         mfcc_index = 1 - (imagehash.hex_to_hash(song.hashes["mfcc"]) - imagehash.hex_to_hash(dataInFile['songs'][i]['mfcc']))/256.0 
         mel_index = 1 - (imagehash.hex_to_hash(song.hashes["mel_spectrogram"]) - imagehash.hex_to_hash(dataInFile['songs'][i]['mel_spectrogram']))/256.0
-        similars.append([(mfcc_index + mel_index)/2,os.path.basename(dataInFile['songs'][i]['Name'])])
+        spectrogram_index = 1 - (imagehash.hex_to_hash(song.hashes["spectrogram"]) - imagehash.hex_to_hash(dataInFile['songs'][i]['spectrogram']))/256.0
+        similars.append([(mfcc_index + mel_index + spectrogram_index)/3,os.path.basename(dataInFile['songs'][i]['Name'])])
     constuctTable(self,similars)
 
 def addTableRow(table, row_data):
