@@ -34,6 +34,7 @@ def readSong(fname, index):
     songs[index].samples, songs[index].sampling_rate = librosa.load(
         fname, sr=22050, mono=True, offset=0.0, duration=60
     )
+    logging.info(f"The song's path is {fname}")
     if flag:
         os.remove(fname)
     songs[index].hashed_features()
@@ -60,8 +61,18 @@ def mixer(self):
         logging.critical("No file selected.")
         return 0
     else:
-        song1 = np.multiply(songs[0].samples, self.slider.value() / 100)
-        song2 = np.multiply(songs[1].samples, 1 - self.slider.value() / 100)
+        song1 = (
+            songs[0].samples
+            if np.all(songs[1].samples == 0)
+            else np.multiply(songs[0].samples, self.slider.value() / 100)
+        )
+        song2 = (
+            songs[1].samples
+            if np.all(songs[0].samples == 0)
+            else np.multiply(songs[1].samples, 1 - self.slider.value() / 100)
+        )
+        logging.info(f"First song's samples: {song1}")
+        logging.info(f"Second song's samples: {song2}")        
         song = Song()
         song.samples = song1 + song2
         song.hashed_features()
