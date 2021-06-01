@@ -40,6 +40,7 @@ def readSong(fname, index):
     songs[index].hashed_features()
 
 
+
 def browseFiles(self, label, index):
     fname = QFileDialog.getOpenFileName(self, "Open file", "../", "*.mp3;;" " *.wav;;")
     file_path = fname[0]
@@ -47,6 +48,10 @@ def browseFiles(self, label, index):
     if fname[0].endswith(extensionsToCheck):
         label.setText(os.path.basename(fname[0]))
         readSong(fname[0], index)
+        if np.all(songs[1-index].samples == 0):
+            toggleSlider(self,0)
+        else:
+            toggleSlider(self,1)
     elif fname[0] != "":
         errorMssg(
             self, "Invalid format. Please select a file with a wav or mp3 format."
@@ -119,6 +124,9 @@ def compareHashes(self):
         )
     constuctTable(self, similars)
 
+def toggleSlider(self,flag):
+    self.slider.setEnabled(flag)
+    self.sliderValue.setEnabled(flag)
 
 def addTableRow(table, row_data):
     row = table.rowCount()
@@ -144,6 +152,7 @@ def errorMssg(self, txt):
 
 
 def closeSong(self, label, index):
+    toggleSlider(self,0)
     songs[index] = Song()
     label.setText("SELECTED FILE NAME")
 
