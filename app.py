@@ -38,5 +38,10 @@ class Ui(QtWidgets.QMainWindow):
 app = QtWidgets.QApplication(sys.argv)
 window = Ui()
 window.show()
+
+# mmn
 # create_db("C:/Users/momen/Downloads/Music")
+
+# Ta7a
+# create_db("/home/ta7a/wannabe_shazam-/db")
 app.exec_()

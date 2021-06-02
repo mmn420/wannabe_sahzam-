@@ -22,22 +22,23 @@ logging.info(f"System info: {json.loads(getSystemInfo())}")
 songs = [Song(), Song()]
 
 
-def readSong(fname, index):
+def readSong(fname):
+    file = Song()
     flag = False
-    songs[index].hashes["Name"] = os.path.basename(fname)
+    file.hashes["Name"] = os.path.basename(fname)
     if fname.endswith(".mp3"):
         flag = True
         tempPath = fname
         fname = fname.replace(".mp3", ".wav")
         AudioSegment.from_mp3(tempPath).export(fname, format="wav")
 
-    songs[index].samples, songs[index].sampling_rate = librosa.load(
+    file.samples, file.sampling_rate = librosa.load(
         fname, sr=22050, mono=True, offset=0.0, duration=60
     )
-    logging.info(f"The song's path is {fname}")
     if flag:
         os.remove(fname)
-    songs[index].hashed_features()
+    file.hashed_features()
+    return file
 
 
 
@@ -47,7 +48,7 @@ def browseFiles(self, label, index):
     extensionsToCheck = (".mp3", ".wav")
     if fname[0].endswith(extensionsToCheck):
         label.setText(os.path.basename(fname[0]))
-        readSong(fname[0], index)
+        songs[index] = readSong(fname[0])
         if np.all(songs[1-index].samples == 0):
             toggleSlider(self,0)
         else:
