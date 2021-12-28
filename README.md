@@ -1,5 +1,6 @@
 # Shazam Replica
-# Introduction: Fingerprinting is basically to identify a signal based on a short sample for it which usually has its intrinsic features and thus these intrinsic features can be used to identify the different varieties or flavors of the signal. Several applications can be directly spotted for such technique. For example:
+# Introduction 
+Fingerprinting is basically to identify a signal based on a short sample for it which usually has its intrinsic features and thus these intrinsic features can be used to identify the different varieties or flavors of the signal. Several applications can be directly spotted for such technique. For example:
 
 # Description:
 Generate the spectrogram for selected songs (3 spectrograms for: the song, the music and the vocals).
